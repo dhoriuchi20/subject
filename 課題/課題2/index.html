@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<title>課題２</title>
+</head>
+<body>
+
+<p>課題２</p>
+
+<input id="primeN" type="number" min="1" value="">
+<p id="prime-result"></p>
+<script>
+    function primeNumber (num) {
+        
+        if(num === 2) {
+            return true;
+        } else if(num === 1){
+            document.getElementById("prime-result").innerHTML = "2〜100以外の数字です。";
+            return false;
+        } else if(num > 100){
+            document.getElementById("prime-result").innerHTML = "2〜100以外の数字です。";
+            return false;
+        } else {
+            for(i = 2; i < 100; i++) {
+                if(num % i === 0) {
+                    return false;
+                    break;
+                }
+                if(i + 1 === num) {
+                    return true;
+                }
+            }
+        }
+    }
+    const num = document.getElementById("primeN").addEventListener("change", function(){
+        if(primeNumber(~~this.value)){
+            document.getElementById("prime-result").innerHTML = this.value + " は素数です。";
+        }
+    }, false)
+
+    
+</script>
+
+</body>
+</html>
